@@ -1,0 +1,1 @@
+add_executable(task_1768 1768_merge_strings_alternately/main.cpp)
