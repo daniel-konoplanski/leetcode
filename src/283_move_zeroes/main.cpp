@@ -19,7 +19,7 @@ class Solution
 public:
     void moveZeroes(std::vector<int>& nums)
     {
-        uint_fast16_t a{0}, b{0};
+        uint16_t a{0}, b{0};
 
         /*
          *  a checks if its on a zero
