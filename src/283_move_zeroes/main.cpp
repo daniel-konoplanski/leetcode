@@ -43,8 +43,6 @@ public:
     }
 };
 
-
-
 int main()
 {
     std::vector<int> input{0,1,0,3,12};
