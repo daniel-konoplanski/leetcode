@@ -42,7 +42,7 @@ class Solution
 private:
     std::size_t getSize(ListNode* head)
     {
-        std::size_t result{1U};
+        std::size_t result{ 1U };
 
         while (head->next)
         {
@@ -57,20 +57,20 @@ public:
     ListNode* deleteMiddle(ListNode* head)
     {
         ListNode* middle = head;
-        ListNode* prev = nullptr;
+        ListNode* prev   = nullptr;
 
-        std::size_t middle_idx{getSize(head) / 2U};
-        std::size_t idx{0};
+        std::size_t middleIdx{ getSize(head) / 2U };
 
-        while (idx < middle_idx)
+        for (std::size_t i{ 0 }; i < middleIdx; ++i)
         {
-            prev = middle;
+            prev   = middle;
             middle = middle->next;
-            ++idx;
         }
 
-        if (!prev) return nullptr;
-        else if (!middle->next) prev->next = nullptr;
+        if (!prev)
+            return nullptr;
+        else if (!middle->next)
+            prev->next = nullptr;
 
         prev->next = middle->next;
 

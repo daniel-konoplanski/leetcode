@@ -27,3 +27,5 @@ AlignConsecutiveDeclarations: true
 AlignConsecutiveMacros: true
 AlignConsecutiveBitFields: true
 AccessModifierOffset: -4
+Cpp11BracedListStyle: false
+AllowShortIfStatementsOnASingleLine: WithoutElse
