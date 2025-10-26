@@ -26,36 +26,26 @@ public:
     {
         if (!head->next) return nullptr;
 
-        auto listSize = getListSize(head);
-        auto indexToRemove = listSize - n;
+        auto left = head;
+        auto right = head;
 
-        if (!indexToRemove) return head->next;
-
-        auto prev = head;
-
-        for (int i{ 1 }; i < indexToRemove; ++i)
+        // Move rigth to position N
+        for (int i{0}; i < n; ++i)
         {
-            prev = prev->next;
+            if (!right->next) return head->next;
+            right = right->next;
         }
 
-        auto current = prev->next;
+        // Move right to the last element in list
+        while (right->next)
+        {
+            left = left->next;
+            right = right->next;
+        }
 
-        prev->next = current->next ? current->next : nullptr;
+        auto current = left->next;
+        left->next = current->next ? current->next : nullptr;
 
         return head;
-    }
-
-private:
-    int getListSize(ListNode* head)
-    {
-        int result{0};
-
-        while (head)
-        {
-            ++result;
-            head = head->next;
-        }
-
-        return result;
     }
 };
