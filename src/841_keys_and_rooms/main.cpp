@@ -6,7 +6,7 @@ public:
     bool canVisitAllRooms(const std::vector<std::vector<int>>& rooms)
     {
         int visitedRooms{0};
-
+        return {};
     }
 
 private:

@@ -2,10 +2,11 @@
     "version": 2,
     "configurePresets": [
         {
-            "name": "x86_64-linux-gcc",
+            "name": "x86_64-linux-gcc-debug",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
                 "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/toolchains/x86_64-linux-gcc.cmake"
             }
