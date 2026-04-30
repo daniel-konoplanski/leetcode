@@ -1,0 +1,349 @@
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Complete Google DSA interview problem list — all 16 patterns covered, 63 problems total</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);font-size:14px;color:var(--color-text-primary)}
+.wrap{padding:1rem 0}
+.top-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.sc{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.sc-label{font-size:11px;color:var(--color-text-secondary)}
+.sc-val{font-size:20px;font-weight:500}
+.pbar-wrap{height:5px;background:var(--color-background-secondary);border-radius:99px;margin-bottom:1.25rem}
+.pbar{height:5px;border-radius:99px;background:#185FA5;transition:width .3s}
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.ftab{padding:5px 13px;border-radius:99px;border:0.5px solid var(--color-border-secondary);background:transparent;cursor:pointer;font-size:12px;color:var(--color-text-secondary);white-space:nowrap;transition:all .15s}
+.ftab.on{background:var(--color-background-secondary);color:var(--color-text-primary);font-weight:500;border-color:var(--color-border-primary)}
+.legend{display:flex;gap:16px;font-size:11px;color:var(--color-text-secondary);margin-bottom:1rem;flex-wrap:wrap;align-items:center}
+.topic-block{margin-bottom:8px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.topic-header{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;background:var(--color-background-secondary);user-select:none}
+.topic-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.topic-title{font-size:13px;font-weight:500;flex:1}
+.topic-right{display:flex;align-items:center;gap:8px}
+.topic-prog{font-size:11px;color:var(--color-text-secondary)}
+.topic-new{font-size:10px;padding:2px 7px;border-radius:99px;background:#FAEEDA;color:#854F0B;font-weight:500}
+.chevron{font-size:11px;color:var(--color-text-tertiary);transition:transform .2s}
+.chevron.open{transform:rotate(180deg)}
+.problems-wrap{display:none;background:var(--color-background-primary)}
+.problems-wrap.open{display:block}
+.why-note{font-size:12px;color:var(--color-text-secondary);padding:8px 14px;border-bottom:0.5px solid var(--color-border-tertiary);font-style:italic}
+.pr-row{display:grid;grid-template-columns:28px 1fr auto auto auto;align-items:center;gap:8px;padding:8px 14px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.pr-row:last-child{border-bottom:none}
+.pr-row.done .pr-name{text-decoration:line-through;color:var(--color-text-tertiary)}
+.pr-name{font-size:13px;color:var(--color-text-primary);text-decoration:none;cursor:pointer}
+.pr-name:hover{color:#185FA5}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:99px;font-weight:500;white-space:nowrap}
+.e{background:#EAF3DE;color:#3B6D11}
+.m{background:#FAEEDA;color:#854F0B}
+.h{background:#FCEBEB;color:#A32D2D}
+.new-badge{background:#E6F1FB;color:#185FA5}
+.pattern-pill{font-size:10px;padding:2px 7px;border-radius:99px;background:var(--color-background-secondary);color:var(--color-text-secondary);white-space:nowrap;display:none}
+.freq{display:flex;gap:2px}
+.fd{width:6px;height:6px;border-radius:50%}
+.cb{width:15px;height:15px;accent-color:#185FA5;cursor:pointer;flex-shrink:0}
+@media(min-width:500px){.pattern-pill{display:inline-block}}
+</style>
+
+<div class="wrap">
+<div class="top-bar">
+  <div class="sc"><div class="sc-label">Total</div><div class="sc-val" id="stotal">63</div></div>
+  <div class="sc"><div class="sc-label">Solved</div><div class="sc-val" id="ssolved">0</div></div>
+  <div class="sc"><div class="sc-label">Left</div><div class="sc-val" id="sleft">63</div></div>
+  <div class="sc"><div class="sc-label">Done</div><div class="sc-val" id="spct">0%</div></div>
+</div>
+<div class="pbar-wrap"><div class="pbar" id="pbar" style="width:0%"></div></div>
+
+<div class="filter-row" id="filter-row">
+  <button class="ftab on" onclick="setFilter('all',this)">All (63)</button>
+</div>
+
+<div class="legend">
+  <span style="font-weight:500">Freq:</span>
+  <span><span style="display:inline-flex;gap:2px;vertical-align:middle"><span style="width:6px;height:6px;border-radius:50%;background:#185FA5;display:inline-block"></span><span style="width:6px;height:6px;border-radius:50%;background:#185FA5;display:inline-block"></span><span style="width:6px;height:6px;border-radius:50%;background:#185FA5;display:inline-block"></span></span> Very high</span>
+  <span><span style="display:inline-flex;gap:2px;vertical-align:middle"><span style="width:6px;height:6px;border-radius:50%;background:#185FA5;display:inline-block"></span><span style="width:6px;height:6px;border-radius:50%;background:#185FA5;display:inline-block"></span><span style="width:6px;height:6px;border-radius:50%;background:#D3D1C7;display:inline-block"></span></span> High</span>
+  <span><span style="display:inline-flex;gap:2px;vertical-align:middle"><span style="width:6px;height:6px;border-radius:50%;background:#185FA5;display:inline-block"></span><span style="width:6px;height:6px;border-radius:50%;background:#D3D1C7;display:inline-block"></span><span style="width:6px;height:6px;border-radius:50%;background:#D3D1C7;display:inline-block"></span></span> Medium</span>
+  <span style="background:#E6F1FB;color:#185FA5;padding:2px 7px;border-radius:99px;font-weight:500">NEW</span> = added from audit
+</div>
+
+<div id="container"></div>
+</div>
+
+<script>
+const topics = [
+  {
+    title:"Arrays, Two Pointers & Prefix Sum", short:"Arrays", color:"#185FA5", isNew:false,
+    why:"42% of all Google problems. Every single round has at least one array problem. Prefix sum added to close the gap from the audit.",
+    problems:[
+      {n:"Two Sum",d:"e",p:"Hash map",f:3,lc:"two-sum",isNew:false},
+      {n:"Product of Array Except Self",d:"m",p:"Prefix products",f:3,lc:"product-of-array-except-self",isNew:false},
+      {n:"Subarray Sum Equals K",d:"m",p:"Prefix sum + hash",f:2,lc:"subarray-sum-equals-k",isNew:true},
+      {n:"Container With Most Water",d:"m",p:"Two pointers",f:3,lc:"container-with-most-water",isNew:false},
+      {n:"3Sum",d:"m",p:"Sort + two pointers",f:2,lc:"3sum",isNew:false},
+      {n:"Trapping Rain Water",d:"h",p:"Two pointers / stack",f:2,lc:"trapping-rain-water",isNew:false},
+    ]
+  },
+  {
+    title:"Sliding Window", short:"Sliding Window", color:"#1D9E75", isNew:false,
+    why:"23 sliding window problems tracked in real Google interviews. Core medium-difficulty pattern.",
+    problems:[
+      {n:"Longest Substring Without Repeating Characters",d:"m",p:"Variable window",f:3,lc:"longest-substring-without-repeating-characters",isNew:false},
+      {n:"Longest Repeating Character Replacement",d:"m",p:"Window + freq count",f:2,lc:"longest-repeating-character-replacement",isNew:false},
+      {n:"Minimum Window Substring",d:"h",p:"Variable window + hash",f:2,lc:"minimum-window-substring",isNew:false},
+      {n:"Sliding Window Maximum",d:"h",p:"Monotonic deque",f:2,lc:"sliding-window-maximum",isNew:false},
+    ]
+  },
+  {
+    title:"Binary Search", short:"Binary Search", color:"#854F0B", isNew:false,
+    why:"Google loves search-space reduction. Expect at least one binary search variant per round.",
+    problems:[
+      {n:"Binary Search",d:"e",p:"Classic",f:2,lc:"binary-search",isNew:false},
+      {n:"Search in Rotated Sorted Array",d:"m",p:"Modified binary search",f:3,lc:"search-in-rotated-sorted-array",isNew:false},
+      {n:"Find Minimum in Rotated Sorted Array",d:"m",p:"Binary search",f:2,lc:"find-minimum-in-rotated-sorted-array",isNew:false},
+      {n:"Median of Two Sorted Arrays",d:"h",p:"Binary search on partitions",f:2,lc:"median-of-two-sorted-arrays",isNew:false},
+    ]
+  },
+  {
+    title:"Stack & Monotonic Stack", short:"Stack", color:"#533489", isNew:false,
+    why:"String parsing, next-greater-element, and histogram problems. Monotonic stack is a recurring pattern.",
+    problems:[
+      {n:"Valid Parentheses",d:"e",p:"Stack matching",f:3,lc:"valid-parentheses",isNew:false},
+      {n:"Decode String",d:"m",p:"Stack + counter",f:3,lc:"decode-string",isNew:false},
+      {n:"Daily Temperatures",d:"m",p:"Monotonic stack",f:2,lc:"daily-temperatures",isNew:false},
+      {n:"Largest Rectangle in Histogram",d:"h",p:"Monotonic stack",f:2,lc:"largest-rectangle-in-histogram",isNew:false},
+    ]
+  },
+  {
+    title:"Linked List & Fast/Slow Pointers", short:"Linked List", color:"#993556", isNew:false,
+    why:"Pointer manipulation fundamentals. LRU Cache is one of Google's most asked problems (17×). Floyd's cycle detection now included.",
+    problems:[
+      {n:"Reverse Linked List",d:"e",p:"Iterative / recursive",f:2,lc:"reverse-linked-list",isNew:false},
+      {n:"Linked List Cycle II",d:"m",p:"Fast & slow pointers",f:2,lc:"linked-list-cycle-ii",isNew:false},
+      {n:"Find the Duplicate Number",d:"m",p:"Floyd's cycle in array",f:2,lc:"find-the-duplicate-number",isNew:true},
+      {n:"LRU Cache",d:"m",p:"Doubly linked list + hash",f:3,lc:"lru-cache",isNew:false},
+    ]
+  },
+  {
+    title:"Heap / Priority Queue", short:"Heap", color:"#0F6E56", isNew:false,
+    why:"Scheduling, top-K, and streaming data problems. Two-heaps pattern for median is a classic hard Google ask.",
+    problems:[
+      {n:"Kth Largest Element in an Array",d:"m",p:"Min-heap / quickselect",f:2,lc:"kth-largest-element-in-an-array",isNew:false},
+      {n:"Top K Frequent Elements",d:"m",p:"Max-heap / bucket sort",f:3,lc:"top-k-frequent-elements",isNew:false},
+      {n:"Find Median from Data Stream",d:"h",p:"Two heaps",f:2,lc:"find-median-from-data-stream",isNew:false},
+      {n:"Task Scheduler",d:"m",p:"Greedy + max-heap",f:2,lc:"task-scheduler",isNew:false},
+    ]
+  },
+  {
+    title:"Trees", short:"Trees", color:"#3B6D11", isNew:false,
+    why:"Appear in 76% of Google onsite loops. Traversal, path sum, serialization, and BST properties are all tested.",
+    problems:[
+      {n:"Maximum Depth of Binary Tree",d:"e",p:"DFS recursion",f:2,lc:"maximum-depth-of-binary-tree",isNew:false},
+      {n:"Binary Tree Level Order Traversal",d:"m",p:"BFS + queue",f:3,lc:"binary-tree-level-order-traversal",isNew:false},
+      {n:"Validate Binary Search Tree",d:"m",p:"Inorder / bounds check",f:2,lc:"validate-binary-search-tree",isNew:false},
+      {n:"Lowest Common Ancestor of BST",d:"m",p:"BST traversal",f:2,lc:"lowest-common-ancestor-of-a-binary-search-tree",isNew:false},
+      {n:"Binary Tree Maximum Path Sum",d:"h",p:"DFS with global max",f:2,lc:"binary-tree-maximum-path-sum",isNew:false},
+      {n:"Serialize and Deserialize Binary Tree",d:"h",p:"BFS / DFS encoding",f:2,lc:"serialize-and-deserialize-binary-tree",isNew:false},
+    ]
+  },
+  {
+    title:"Graphs — BFS, DFS, Topological Sort, Union-Find", short:"Graphs", color:"#185FA5", isNew:false,
+    why:"Graph questions appear in 76% of Google L4+ rounds. All four graph sub-patterns (BFS, DFS, topo sort, union-find) are covered here.",
+    problems:[
+      {n:"Number of Islands",d:"m",p:"BFS / DFS grid",f:3,lc:"number-of-islands",isNew:false},
+      {n:"Clone Graph",d:"m",p:"BFS + hash map",f:2,lc:"clone-graph",isNew:false},
+      {n:"Course Schedule",d:"m",p:"Topological sort / cycle",f:2,lc:"course-schedule",isNew:false},
+      {n:"Pacific Atlantic Water Flow",d:"m",p:"Multi-source BFS",f:2,lc:"pacific-atlantic-water-flow",isNew:false},
+      {n:"Word Ladder",d:"h",p:"BFS shortest path",f:2,lc:"word-ladder",isNew:false},
+      {n:"Longest Increasing Path in a Matrix",d:"h",p:"DFS + memoization",f:2,lc:"longest-increasing-path-in-a-matrix",isNew:false},
+      {n:"Number of Connected Components",d:"m",p:"Union-Find / DFS",f:2,lc:"number-of-connected-components-in-an-undirected-graph",isNew:false},
+    ]
+  },
+  {
+    title:"Shortest Path (Dijkstra's)", short:"Shortest Path", color:"#D85A30", isNew:true,
+    why:"NEW — Was missing entirely. Google expects Dijkstra's for L4+ roles. BFS only covers unweighted graphs — weighted graphs need a different algorithm.",
+    problems:[
+      {n:"Network Delay Time",d:"m",p:"Dijkstra's algorithm",f:2,lc:"network-delay-time",isNew:true},
+      {n:"Cheapest Flights Within K Stops",d:"m",p:"Dijkstra's / Bellman-Ford",f:2,lc:"cheapest-flights-within-k-stops",isNew:true},
+    ]
+  },
+  {
+    title:"Matrix Traversal & Manipulation", short:"Matrix", color:"#533489", isNew:true,
+    why:"NEW — Was missing entirely. 2D grid direction-vector traversal is its own distinct pattern — it appears in image processing and maps problems, both very Google-relevant domains.",
+    problems:[
+      {n:"Spiral Matrix",d:"m",p:"Direction vector traversal",f:2,lc:"spiral-matrix",isNew:true},
+      {n:"Rotate Image",d:"m",p:"In-place transpose + reverse",f:2,lc:"rotate-image",isNew:true},
+      {n:"Set Matrix Zeroes",d:"m",p:"In-place matrix marking",f:2,lc:"set-matrix-zeroes",isNew:true},
+    ]
+  },
+  {
+    title:"Dynamic Programming", short:"DP", color:"#185FA5", isNew:false,
+    why:"Google's favourite topic for algorithmic maturity. 57 DP questions tracked in recent Google interviews. 1D, 2D, string, and knapsack variants all covered.",
+    problems:[
+      {n:"Climbing Stairs",d:"e",p:"1D DP / Fibonacci",f:2,lc:"climbing-stairs",isNew:false},
+      {n:"Coin Change",d:"m",p:"1D bottom-up DP",f:3,lc:"coin-change",isNew:false},
+      {n:"Maximum Product Subarray",d:"m",p:"DP track min & max",f:2,lc:"maximum-product-subarray",isNew:false},
+      {n:"Word Break",d:"m",p:"DP + hash set",f:3,lc:"word-break",isNew:false},
+      {n:"Longest Increasing Subsequence",d:"m",p:"DP / patience sort",f:2,lc:"longest-increasing-subsequence",isNew:false},
+      {n:"Partition Equal Subset Sum",d:"m",p:"0/1 Knapsack DP",f:2,lc:"partition-equal-subset-sum",isNew:false},
+      {n:"Edit Distance",d:"h",p:"2D string DP",f:2,lc:"edit-distance",isNew:false},
+    ]
+  },
+  {
+    title:"Backtracking", short:"Backtracking", color:"#D85A30", isNew:false,
+    why:"Combinatorial explosion problems. Google often follows up asking you to prune or optimize your backtracking solution.",
+    problems:[
+      {n:"Combination Sum",d:"m",p:"Backtracking + pruning",f:2,lc:"combination-sum",isNew:false},
+      {n:"Permutations",d:"m",p:"Backtracking",f:2,lc:"permutations",isNew:false},
+      {n:"Word Search",d:"m",p:"DFS + backtracking on grid",f:2,lc:"word-search",isNew:false},
+      {n:"Expression Add Operators",d:"h",p:"Backtracking + eval",f:2,lc:"expression-add-operators",isNew:false},
+    ]
+  },
+  {
+    title:"Trie (Prefix Tree)", short:"Trie", color:"#0F6E56", isNew:false,
+    why:"Autocomplete and prefix matching — extremely Google-relevant. Design Autocomplete System is a known Google interview question.",
+    problems:[
+      {n:"Implement Trie (Prefix Tree)",d:"m",p:"Trie node design",f:3,lc:"implement-trie-prefix-tree",isNew:false},
+      {n:"Word Search II",d:"h",p:"Trie + backtracking",f:2,lc:"word-search-ii",isNew:false},
+      {n:"Design Search Autocomplete System",d:"h",p:"Trie + priority queue",f:2,lc:"design-search-autocomplete-system",isNew:false},
+    ]
+  },
+  {
+    title:"Greedy & Intervals", short:"Greedy", color:"#854F0B", isNew:false,
+    why:"Merge Intervals is Google's 2nd most frequent problem (19×). Greedy choice property is tested in scheduling and jump game problems.",
+    problems:[
+      {n:"Merge Intervals",d:"m",p:"Sort + merge",f:3,lc:"merge-intervals",isNew:false},
+      {n:"Meeting Rooms II",d:"m",p:"Min-heap / sweep line",f:3,lc:"meeting-rooms-ii",isNew:false},
+      {n:"Jump Game",d:"m",p:"Greedy scan",f:2,lc:"jump-game",isNew:false},
+      {n:"Text Justification",d:"h",p:"Greedy string format",f:2,lc:"text-justification",isNew:false},
+    ]
+  },
+  {
+    title:"Bit Manipulation", short:"Bit Manip", color:"#3B6D11", isNew:true,
+    why:"NEW — Was missing entirely. XOR tricks, bitmask state compression, and power-of-two checks appear in Google phone screens. Two problems cover all fundamental bit patterns you need.",
+    problems:[
+      {n:"Single Number",d:"e",p:"XOR bit trick",f:2,lc:"single-number",isNew:true},
+      {n:"Counting Bits",d:"e",p:"DP + bit shift",f:2,lc:"counting-bits",isNew:true},
+      {n:"Sum of Two Integers",d:"m",p:"Bit addition (no + operator)",f:2,lc:"sum-of-two-integers",isNew:true},
+    ]
+  },
+  {
+    title:"Divide & Conquer", short:"Divide & Conquer", color:"#993556", isNew:true,
+    why:"NEW — Was missing entirely. Google specifically tests divide and conquer through merge sort and closest-pair problems. This pattern is distinct from DP — it's about splitting and combining, not memoizing.",
+    problems:[
+      {n:"Sort an Array (implement Merge Sort)",d:"m",p:"Divide & conquer",f:2,lc:"sort-an-array",isNew:true},
+      {n:"Merge K Sorted Lists",d:"h",p:"Divide & conquer / heap",f:2,lc:"merge-k-sorted-lists",isNew:true},
+    ]
+  },
+];
+
+const TOTAL = topics.reduce((s,t)=>s+t.problems.length,0);
+let solved = new Set();
+let activeFilter = 'all';
+
+function freqHTML(f){
+  return [3,2,1].map((_,i)=>`<div class="fd" style="background:${i<f?'#185FA5':'#D3D1C7'}"></div>`).join('');
+}
+
+function buildFilters(){
+  const row = document.getElementById('filter-row');
+  topics.forEach(t=>{
+    const b = document.createElement('button');
+    b.className='ftab';
+    b.textContent=t.short;
+    b.onclick=()=>setFilter(t.short,b);
+    row.appendChild(b);
+  });
+}
+
+function setFilter(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+  if(f!=='all'){
+    const idx=topics.findIndex(t=>t.short===f);
+    if(idx>=0) setTimeout(()=>openTopic(idx),40);
+  }
+}
+
+function openTopic(idx){
+  const pw=document.getElementById('pw-'+idx);
+  const ch=document.getElementById('ch-'+idx);
+  if(pw&&!pw.classList.contains('open')){pw.classList.add('open');ch.classList.add('open');}
+}
+
+function toggleTopic(idx){
+  const pw=document.getElementById('pw-'+idx);
+  const ch=document.getElementById('ch-'+idx);
+  pw.classList.toggle('open');
+  ch.classList.toggle('open');
+}
+
+function render(){
+  const container=document.getElementById('container');
+  container.innerHTML='';
+  const list=activeFilter==='all'?topics:topics.filter(t=>t.short===activeFilter);
+  list.forEach((t,i)=>{
+    const realIdx=topics.indexOf(t);
+    const solvedCount=t.problems.filter(p=>solved.has(t.title+p.n)).length;
+    const pct=Math.round(solvedCount/t.problems.length*100);
+    const block=document.createElement('div');
+    block.className='topic-block';
+    block.innerHTML=`
+      <div class="topic-header" onclick="toggleTopic(${realIdx})">
+        <div class="topic-dot" style="background:${t.color}"></div>
+        <span class="topic-title">${t.title}</span>
+        <div class="topic-right">
+          ${t.isNew?'<span class="topic-new">NEW</span>':''}
+          <span class="topic-prog">${solvedCount}/${t.problems.length} · ${pct}%</span>
+          <span class="chevron" id="ch-${realIdx}">▼</span>
+        </div>
+      </div>
+      <div class="problems-wrap" id="pw-${realIdx}">
+        <div class="why-note">${t.why}</div>
+        ${t.problems.map(p=>{
+          const id=t.title+p.n;
+          const done=solved.has(id);
+          return `<div class="pr-row${done?' done':''}" id="prow-${CSS.escape(id)}">
+            <input type="checkbox" class="cb" ${done?'checked':''} onchange="toggleP('${id.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}',this)">
+            <a class="pr-name" href="https://leetcode.com/problems/${p.lc}/" target="_blank">${p.n}${p.isNew?' <span class="badge new-badge">NEW</span>':''}</a>
+            <div class="freq">${freqHTML(p.f)}</div>
+            <span class="pattern-pill">${p.p}</span>
+            <span class="badge ${p.d}">${p.d==='e'?'easy':p.d==='m'?'medium':'hard'}</span>
+          </div>`;
+        }).join('')}
+      </div>`;
+    container.appendChild(block);
+  });
+  updateStats();
+}
+
+function toggleP(id,cb){
+  if(cb.checked)solved.add(id);else solved.delete(id);
+  updateStats();
+  const row=document.getElementById('prow-'+CSS.escape(id));
+  if(row)row.classList.toggle('done',cb.checked);
+  updateTopicProgress();
+}
+
+function updateTopicProgress(){
+  topics.forEach((t,idx)=>{
+    const prog=document.querySelector(`#pw-${idx}`)?.previousElementSibling?.querySelector('.topic-prog');
+    if(prog){
+      const s=t.problems.filter(p=>solved.has(t.title+p.n)).length;
+      prog.textContent=`${s}/${t.problems.length} · ${Math.round(s/t.problems.length*100)}%`;
+    }
+  });
+}
+
+function updateStats(){
+  const s=solved.size;
+  document.getElementById('ssolved').textContent=s;
+  document.getElementById('sleft').textContent=TOTAL-s;
+  document.getElementById('spct').textContent=Math.round(s/TOTAL*100)+'%';
+  document.getElementById('pbar').style.width=Math.round(s/TOTAL*100)+'%';
+}
+
+document.getElementById('stotal').textContent=TOTAL;
+document.getElementById('sleft').textContent=TOTAL;
+buildFilters();
+render();
+</script>
