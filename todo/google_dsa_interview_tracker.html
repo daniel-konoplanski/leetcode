@@ -1,5 +1,5 @@
 
-<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Complete Google DSA interview problem list — all 16 patterns covered, 63 problems total</h2>
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Complete Google DSA interview problem list — all 16 patterns covered, 67 problems total</h2>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-sans);font-size:14px;color:var(--color-text-primary)}
@@ -45,15 +45,15 @@ body{font-family:var(--font-sans);font-size:14px;color:var(--color-text-primary)
 
 <div class="wrap">
 <div class="top-bar">
-  <div class="sc"><div class="sc-label">Total</div><div class="sc-val" id="stotal">63</div></div>
+  <div class="sc"><div class="sc-label">Total</div><div class="sc-val" id="stotal">67</div></div>
   <div class="sc"><div class="sc-label">Solved</div><div class="sc-val" id="ssolved">0</div></div>
-  <div class="sc"><div class="sc-label">Left</div><div class="sc-val" id="sleft">63</div></div>
+  <div class="sc"><div class="sc-label">Left</div><div class="sc-val" id="sleft">67</div></div>
   <div class="sc"><div class="sc-label">Done</div><div class="sc-val" id="spct">0%</div></div>
 </div>
 <div class="pbar-wrap"><div class="pbar" id="pbar" style="width:0%"></div></div>
 
 <div class="filter-row" id="filter-row">
-  <button class="ftab on" onclick="setFilter('all',this)">All (63)</button>
+  <button class="ftab on" onclick="setFilter('all',this)">All (67)</button>
 </div>
 
 <div class="legend">
@@ -71,7 +71,7 @@ body{font-family:var(--font-sans);font-size:14px;color:var(--color-text-primary)
 const topics = [
   {
     title:"Arrays, Two Pointers & Prefix Sum", short:"Arrays", color:"#185FA5", isNew:false,
-    why:"42% of all Google problems. Every single round has at least one array problem. Prefix sum added to close the gap from the audit.",
+    why:"One of the highest-frequency areas at Google — expect at least one array problem in nearly every round. Prefix sum added to close the gap from the audit.",
     problems:[
       {n:"Two Sum",d:"e",p:"Hash map",f:3,lc:"two-sum",isNew:false},
       {n:"Product of Array Except Self",d:"m",p:"Prefix products",f:3,lc:"product-of-array-except-self",isNew:false},
@@ -83,7 +83,7 @@ const topics = [
   },
   {
     title:"Sliding Window", short:"Sliding Window", color:"#1D9E75", isNew:false,
-    why:"23 sliding window problems tracked in real Google interviews. Core medium-difficulty pattern.",
+    why:"A core medium-difficulty pattern that comes up frequently in Google interviews. Worth drilling until the fixed vs. variable window distinction is automatic.",
     problems:[
       {n:"Longest Substring Without Repeating Characters",d:"m",p:"Variable window",f:3,lc:"longest-substring-without-repeating-characters",isNew:false},
       {n:"Longest Repeating Character Replacement",d:"m",p:"Window + freq count",f:2,lc:"longest-repeating-character-replacement",isNew:false},
@@ -113,7 +113,7 @@ const topics = [
   },
   {
     title:"Linked List & Fast/Slow Pointers", short:"Linked List", color:"#993556", isNew:false,
-    why:"Pointer manipulation fundamentals. LRU Cache is one of Google's most asked problems (17×). Floyd's cycle detection now included.",
+    why:"Pointer manipulation fundamentals. LRU Cache is one of Google's most frequently asked design-flavored problems. Floyd's cycle detection now included.",
     problems:[
       {n:"Reverse Linked List",d:"e",p:"Iterative / recursive",f:2,lc:"reverse-linked-list",isNew:false},
       {n:"Linked List Cycle II",d:"m",p:"Fast & slow pointers",f:2,lc:"linked-list-cycle-ii",isNew:false},
@@ -133,7 +133,7 @@ const topics = [
   },
   {
     title:"Trees", short:"Trees", color:"#3B6D11", isNew:false,
-    why:"Appear in 76% of Google onsite loops. Traversal, path sum, serialization, and BST properties are all tested.",
+    why:"Extremely common in Google onsite loops. Traversal, path sum, serialization, and BST properties are all tested.",
     problems:[
       {n:"Maximum Depth of Binary Tree",d:"e",p:"DFS recursion",f:2,lc:"maximum-depth-of-binary-tree",isNew:false},
       {n:"Binary Tree Level Order Traversal",d:"m",p:"BFS + queue",f:3,lc:"binary-tree-level-order-traversal",isNew:false},
@@ -145,7 +145,7 @@ const topics = [
   },
   {
     title:"Graphs — BFS, DFS, Topological Sort, Union-Find", short:"Graphs", color:"#185FA5", isNew:false,
-    why:"Graph questions appear in 76% of Google L4+ rounds. All four graph sub-patterns (BFS, DFS, topo sort, union-find) are covered here.",
+    why:"Graph questions are very common in Google L4+ rounds. All four graph sub-patterns (BFS, DFS, topo sort, union-find) are covered here.",
     problems:[
       {n:"Number of Islands",d:"m",p:"BFS / DFS grid",f:3,lc:"number-of-islands",isNew:false},
       {n:"Clone Graph",d:"m",p:"BFS + hash map",f:2,lc:"clone-graph",isNew:false},
@@ -175,7 +175,7 @@ const topics = [
   },
   {
     title:"Dynamic Programming", short:"DP", color:"#185FA5", isNew:false,
-    why:"Google's favourite topic for algorithmic maturity. 57 DP questions tracked in recent Google interviews. 1D, 2D, string, and knapsack variants all covered.",
+    why:"Google's favourite topic for testing algorithmic maturity, and one of the most heavily represented in recent interviews. 1D, 2D, string, and knapsack variants all covered.",
     problems:[
       {n:"Climbing Stairs",d:"e",p:"1D DP / Fibonacci",f:2,lc:"climbing-stairs",isNew:false},
       {n:"Coin Change",d:"m",p:"1D bottom-up DP",f:3,lc:"coin-change",isNew:false},
@@ -207,7 +207,7 @@ const topics = [
   },
   {
     title:"Greedy & Intervals", short:"Greedy", color:"#854F0B", isNew:false,
-    why:"Merge Intervals is Google's 2nd most frequent problem (19×). Greedy choice property is tested in scheduling and jump game problems.",
+    why:"Merge Intervals is one of Google's most frequently asked problems. The greedy choice property shows up in scheduling and jump-game variants.",
     problems:[
       {n:"Merge Intervals",d:"m",p:"Sort + merge",f:3,lc:"merge-intervals",isNew:false},
       {n:"Meeting Rooms II",d:"m",p:"Min-heap / sweep line",f:3,lc:"meeting-rooms-ii",isNew:false},
